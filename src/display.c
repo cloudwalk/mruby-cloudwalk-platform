@@ -40,6 +40,19 @@ mrb_display_s_print_bitmap(mrb_state *mrb, mrb_value self)
   return mrb_nil_value();
 }
 
+mrb_value
+mrb_display_s_print_line(mrb_state *mrb, mrb_value self)
+{
+  mrb_value buf;
+  mrb_int x, y;
+
+  mrb_get_args(mrb, "oii", &buf, &y, &x);
+
+  /*TODO Implement*/
+
+  return mrb_nil_value();
+}
+
 void
 mrb_display_init(mrb_state* mrb)
 {
@@ -49,7 +62,8 @@ mrb_display_init(mrb_state* mrb)
   platform = mrb_class_get(mrb, "Platform");
   display = mrb_define_class(mrb, "Display", platform);
 
-  mrb_define_class_method(mrb , display , "_clear"        , mrb_display_s__clear       , MRB_ARGS_NONE());
-  mrb_define_class_method(mrb , display , "_clear_line"   , mrb_display_s__clear_line  , MRB_ARGS_REQ(1));
-  mrb_define_class_method(mrb , display , "_print_bitmap" , mrb_display_s_print_bitmap , MRB_ARGS_REQ(3));
+  mrb_define_class_method(mrb , display , "clear"        , mrb_display_s__clear       , MRB_ARGS_NONE());
+  mrb_define_class_method(mrb , display , "clear_line"   , mrb_display_s__clear_line  , MRB_ARGS_REQ(1));
+  mrb_define_class_method(mrb , display , "print_bitmap" , mrb_display_s_print_bitmap , MRB_ARGS_REQ(3));
+  mrb_define_class_method(mrb , display , "print_line"   , mrb_display_s_print_line   , MRB_ARGS_REQ(3));
 }
