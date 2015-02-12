@@ -41,21 +41,14 @@ mrb_magnetic_s_close(mrb_state *mrb, mrb_value self)
 mrb_value
 mrb_magnetic_s_tracks(mrb_state *mrb, mrb_value self)
 {
-  ST_MSR_DATA track1;
-  ST_MSR_DATA track2;
-  ST_MSR_DATA track3;
   mrb_value hash;
-
-  memset(&track1, 0, sizeof(track1));
-  memset(&track2, 0, sizeof(track2));
-  memset(&track3, 0, sizeof(track3));
 
   /*TODO Implement*/
 
   hash = mrb_hash_new(mrb);
-  mrb_hash_set(mrb, hash, mrb_symbol_value(mrb_intern_cstr(mrb, "track1")), mrb_str_new_cstr(mrb, track1.TrackData));
-  mrb_hash_set(mrb, hash, mrb_symbol_value(mrb_intern_cstr(mrb, "track2")), mrb_str_new_cstr(mrb, track2.TrackData));
-  mrb_hash_set(mrb, hash, mrb_symbol_value(mrb_intern_cstr(mrb, "track3")), mrb_str_new_cstr(mrb, track3.TrackData));
+  mrb_hash_set(mrb, hash, mrb_symbol_value(mrb_intern_cstr(mrb, "track1")), mrb_str_new_cstr(mrb, "track1 information"));
+  mrb_hash_set(mrb, hash, mrb_symbol_value(mrb_intern_cstr(mrb, "track2")), mrb_str_new_cstr(mrb, "track2 information"));
+  mrb_hash_set(mrb, hash, mrb_symbol_value(mrb_intern_cstr(mrb, "track3")), mrb_str_new_cstr(mrb, "track3 information"));
 
   return hash;
 }
