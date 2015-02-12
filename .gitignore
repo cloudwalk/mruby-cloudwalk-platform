@@ -1,0 +1,4 @@
+stats
+stats/*
+*.o
+.!*
