@@ -8,7 +8,7 @@
 #include "mruby/hash.h"
 
 mrb_value
-mrb_platform_s_display_clear(mrb_state *mrb, mrb_value self)
+mrb_display_s_display_clear(mrb_state *mrb, mrb_value self)
 {
   /*TODO Implement*/
 
@@ -16,7 +16,7 @@ mrb_platform_s_display_clear(mrb_state *mrb, mrb_value self)
 }
 
 mrb_value
-mrb_platform_s_display_clear_line(mrb_state *mrb, mrb_value self)
+mrb_display_s_display_clear_line(mrb_state *mrb, mrb_value self)
 {
   mrb_int line;
 
@@ -28,7 +28,7 @@ mrb_platform_s_display_clear_line(mrb_state *mrb, mrb_value self)
 }
 
 mrb_value
-mrb_platform_s_print_bitmap(mrb_state *mrb, mrb_value self)
+mrb_display_s_print_bitmap(mrb_state *mrb, mrb_value self)
 {
   mrb_value path;
   mrb_int x, y;
@@ -44,10 +44,12 @@ void
 mrb_display_init(mrb_state* mrb)
 {
   struct RClass *platform;
+  struct RClass *display;
 
   platform = mrb_class_get(mrb, "Platform");
+  display = mrb_define_class(mrb, "Display", platform);
 
-  mrb_define_class_method(mrb , platform , "display_clear"      , mrb_platform_s_display_clear      , MRB_ARGS_NONE());
-  mrb_define_class_method(mrb , platform , "display_clear_line" , mrb_platform_s_display_clear_line , MRB_ARGS_REQ(1));
-  mrb_define_class_method(mrb , platform , "print_bitmap"       , mrb_platform_s_print_bitmap       , MRB_ARGS_REQ(3));
+  mrb_define_class_method(mrb , display , "display_clear"      , mrb_display_s_display_clear      , MRB_ARGS_NONE());
+  mrb_define_class_method(mrb , display , "display_clear_line" , mrb_display_s_display_clear_line , MRB_ARGS_REQ(1));
+  mrb_define_class_method(mrb , display , "print_bitmap"       , mrb_display_s_print_bitmap       , MRB_ARGS_REQ(3));
 }

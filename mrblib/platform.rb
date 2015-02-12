@@ -40,12 +40,12 @@ class Platform
     DEFAULT_BACKLIGHT = 1 # TODO Implement
     def self.serial
       # TODO C Implement
-      Platform._serial
+      Platform::System._serial
     end
 
     def self.backlight=(level)
       # TODO C Implement
-      Platform._backlight=level
+      Platform::System._backlight=level
     end
 
     def self.backlight
@@ -54,12 +54,12 @@ class Platform
 
     def self.battery
       # TODO C Implement
-      Platform._battery
+      Platform::System._battery
     end
 
     def self.reboot
       # TODO C Implement
-      Platform._reboot
+      Platform::System._reboot
     end
 
     class << self
