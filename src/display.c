@@ -8,7 +8,6 @@
 #include "mruby/hash.h"
 
 mrb_value
-mrb_value
 mrb_platform_s_display_clear(mrb_state *mrb, mrb_value self)
 {
   /*TODO Implement*/
