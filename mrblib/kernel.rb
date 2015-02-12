@@ -36,7 +36,8 @@ module Kernel
   INPUT_SECRET  = 28 # TODO Implement
 
   def getc
-    case PAX._getc
+    # TODO Implement
+    case getc
     when XUI_KEY0 then "0"
     when XUI_KEY1 then "1"
     when XUI_KEY2 then "2"
@@ -66,48 +67,10 @@ module Kernel
   end
 
   def print_line(buf, row=nil, column=nil)
-    __printstr__(buf, row, column)
-  end
-
-  def gets(separator, limit, mode)
-    get_string(1, limit, mode).split(separator).first
-  end
-
-  def get_string(min, max, mode = IO_INPUT_LETTERS)
-    PAX._gets(min, max, input_type(mode), Screen.y, Screen.x)
-  end
-
-  # TODO Scalone refactory NEEDED
-  def __printstr__(str, y = nil, x = nil)
-    Screen.y = (y || Screen.y || 0)
-    Screen.x = (x || Screen.x || 0)
-
-    screen_add_y(1) if str == "\n"
-
-    str.split("\n").each_with_index do |string,index|
-      screen_add_y(1) if index > 0
-
-      if (Screen.x + string.size) < SCREEN_X_SIZE
-        _printstr__(string, Screen.y, Screen.x)
-        Screen.x += string.size
-      else
-        space = SCREEN_X_SIZE - Screen.x
-        _printstr__("#{string[0..(space - 1)]}", Screen.y, Screen.x)
-        screen_add_y(1)
-        __printstr__("#{string[(space)..-1]}")
-      end
-    end
+    Platform::Display.print_line(buf, row, column)
   end
 
   private
-  def screen_add_y(value)
-    Screen.y += value
-    Screen.x = 0
-    if Screen.y > (SCREEN_Y_SIZE - 1)
-      Screen.y = 0
-    end
-  end
-
   def input_type(type)
     case type
     when IO_INPUT_NUMBERS then INPUT_NUMBERS

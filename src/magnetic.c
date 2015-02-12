@@ -12,8 +12,6 @@ mrb_magnetic_s_open(mrb_state *mrb, mrb_value self)
 {
   mrb_int ret;
 
-  ret = OsMsrOpen();
-
   /*TODO Implement*/
 
   return mrb_fixnum_value(ret);
