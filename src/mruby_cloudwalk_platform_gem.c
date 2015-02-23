@@ -19,6 +19,6 @@ mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
 }
 
 void
-mrb_mruby_clouwalk_platform_gem_final(mrb_state* mrb)
+mrb_mruby_cloudwalk_platform_gem_final(mrb_state* mrb)
 {
 }
