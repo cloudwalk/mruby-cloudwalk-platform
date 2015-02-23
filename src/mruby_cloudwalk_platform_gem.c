@@ -19,7 +19,6 @@ mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
   mrb_system_init(mrb);
   mrb_display_init(mrb);
   mrb_magnetic_init(mrb);
-  mrb_emv_init(mrb);
 }
 
 void
