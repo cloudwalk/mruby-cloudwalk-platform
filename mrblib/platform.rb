@@ -1,5 +1,5 @@
 class Platform
-  Network = ::Network
+  Network = ::Network if Kernel.const_defined? :Network
   IO      = ::IO
 
   class System
