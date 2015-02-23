@@ -9,6 +9,10 @@
 
 #define DONE mrb_gc_arena_restore(mrb, 0)
 
+void mrb_system_init(mrb_state *mrb);
+void mrb_display_init(mrb_state *mrb);
+void mrb_magnetic_init(mrb_state *mrb);
+
 void
 mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
 {
