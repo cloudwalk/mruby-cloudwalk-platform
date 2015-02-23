@@ -50,13 +50,21 @@ mrb_audio_s__beep(mrb_state *mrb, mrb_value self)
 
   mrb_get_args(mrb, "ii", &tone, &milliseconds);
 
-  OsBeep(tone, milliseconds);
+  /*TODO Implement*/
+  /*OsBeep(tone, milliseconds);*/
+
+  return mrb_nil_value();
 }
 
 static mrb_value
 mrb_system_s_reboot(mrb_state *mrb, mrb_value self)
 {
-  return mrb_fixnum_value(OsReboot());
+  mrb_int ret=0;
+
+  /*TODO Implement*/
+  /*ret = OsReboot();*/
+
+  return mrb_fixnum_value(ret);
 }
 
 void
