@@ -12,6 +12,9 @@
 void mrb_system_init(mrb_state *mrb);
 void mrb_display_init(mrb_state *mrb);
 void mrb_magnetic_init(mrb_state *mrb);
+void mrb_init_network(mrb_state *mrb);
+void mrb_init_gprs(mrb_state *mrb);
+void mrb_init_wifi(mrb_state *mrb);
 
 void
 mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
@@ -19,6 +22,9 @@ mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
   mrb_system_init(mrb);
   mrb_display_init(mrb);
   mrb_magnetic_init(mrb);
+  mrb_init_network(mrb); DONE;
+  mrb_init_gprs(mrb); DONE;
+  mrb_init_wifi(mrb); DONE;
 }
 
 void
