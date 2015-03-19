@@ -1,7 +1,5 @@
 
 class Network
-  Wifi = ::Wifi
-
   class Wifi
     class << self
       attr_accessor :bssid, :essid, :rssi, :authentication, :password, :essid, :bssid, :channel, :mode, :cipher

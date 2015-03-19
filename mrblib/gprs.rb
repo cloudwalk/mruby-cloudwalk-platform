@@ -1,7 +1,5 @@
 
 class Network
-  Gprs = ::Gprs
-
   class Gprs
     class << self
       attr_accessor :password, :user, :apn

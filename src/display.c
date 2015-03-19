@@ -60,7 +60,7 @@ mrb_display_init(mrb_state* mrb)
   struct RClass *display;
 
   platform = mrb_class_get(mrb, "Platform");
-  display = mrb_define_class(mrb, "Display", platform);
+  display = mrb_define_class_under(mrb, platform, "Display", mrb->object_class);
 
   mrb_define_class_method(mrb , display , "clear"        , mrb_display_s_clear       , MRB_ARGS_NONE());
   mrb_define_class_method(mrb , display , "clear_line"   , mrb_display_s_clear_line  , MRB_ARGS_REQ(1));

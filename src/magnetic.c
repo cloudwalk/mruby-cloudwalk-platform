@@ -58,7 +58,7 @@ mrb_magnetic_init(mrb_state* mrb)
   struct RClass *magnetic;
 
   platform = mrb_class_get(mrb, "Platform");
-  magnetic = mrb_define_class(mrb, "Magnetic", platform);
+  magnetic = mrb_define_class_under(mrb, platform, "Magnetic", mrb->object_class);
 
   mrb_define_class_method(mrb , magnetic , "open"      , mrb_magnetic_s_open      , MRB_ARGS_NONE());
   mrb_define_class_method(mrb , magnetic , "read"      , mrb_magnetic_s_read      , MRB_ARGS_NONE());
