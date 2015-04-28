@@ -9,6 +9,12 @@ class Platform
   end
 
   class IO
+    DEFAULT_TIMEOUT = 30000
+
+    class << self
+      attr_accessor :timeout
+    end
+
     # get_string c implementation.
     #
     # @param min [Fixnum] Minimum length of the input string.
