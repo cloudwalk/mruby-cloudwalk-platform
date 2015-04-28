@@ -22,7 +22,7 @@ mrb_platform_io_s__getc(mrb_state *mrb, mrb_value self)
 /*
 @param min [int]: Minimum number of characters to press.
 @param max [int]: Maximum number of characters to press.
-@param mode [int]: Maximum number of characters to press.
+@param mode [int]: Mask to be used password, only numbers, only letters and etc.
 @param y [int]: Y value, line to press.
 @param x [int]: X value, row to press.
 */
