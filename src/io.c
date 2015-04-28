@@ -19,6 +19,13 @@ mrb_platform_io_s__getc(mrb_state *mrb, mrb_value self)
   return mrb_fixnum_value(key);
 }
 
+/*
+@param min [int]: Minimum number of characters to press.
+@param max [int]: Maximum number of characters to press.
+@param mode [int]: Maximum number of characters to press.
+@param y [int]: Y value, line to press.
+@param x [int]: X value, row to press.
+*/
 static mrb_value
 mrb_platform_io_s__gets(mrb_state *mrb, mrb_value self)
 {
@@ -39,7 +46,7 @@ mrb_io_init(mrb_state* mrb)
 {
   struct RClass *io;
 
-  io = mrb_get_class(mrb, "IO", mrb->object_class);
+  io = mrb_class_get(mrb, "IO");
 
   mrb_define_class_method(mrb , io , "_getc" , mrb_platform_io_s__getc , MRB_ARGS_REQ(1));
   mrb_define_class_method(mrb , io , "_gets" , mrb_platform_io_s__gets , MRB_ARGS_REQ(5));
