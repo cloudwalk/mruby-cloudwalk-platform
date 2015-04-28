@@ -1,30 +1,31 @@
 module Kernel
   # TODO Implement
-  SCREEN_X_SIZE = 20
-  SCREEN_Y_SIZE = 7
-  XUI_KEY1      = 2
-  XUI_KEY2      = 3
-  XUI_KEY3      = 4
-  XUI_KEY4      = 5
-  XUI_KEY5      = 6
-  XUI_KEY6      = 7
-  XUI_KEY7      = 8
-  XUI_KEY8      = 9
-  XUI_KEY9      = 10
-  XUI_KEY0      = 11
-  XUI_KEYCANCEL = 223
-  XUI_KEYCLEAR  = 14
-  XUI_KEYENTER  = 28
-  XUI_KEYSHARP  = 55
-  XUI_KEYF1     = 59
-  XUI_KEYALPHA  = XUI_KEYF1
-  XUI_KEYF2     = 60
-  XUI_KEYF3     = 61
-  XUI_KEYF4     = 62
-  XUI_KEYFUNC   = 102
-  XUI_KEYUP     = 103
-  XUI_KEYDOWN   = 108
-  XUI_KEYMENU   = 139
+  SCREEN_X_SIZE  = 21
+  SCREEN_Y_SIZE  = 7
+  XUI_KEY1       = 2
+  XUI_KEY2       = 3
+  XUI_KEY3       = 4
+  XUI_KEY4       = 5
+  XUI_KEY5       = 6
+  XUI_KEY6       = 7
+  XUI_KEY7       = 8
+  XUI_KEY8       = 9
+  XUI_KEY9       = 10
+  XUI_KEY0       = 11
+  XUI_KEYCANCEL  = 223
+  XUI_KEYTIMEOUT = 18
+  XUI_KEYCLEAR   = 14
+  XUI_KEYENTER   = 28
+  XUI_KEYSHARP   = 55
+  XUI_KEYF1      = 59
+  XUI_KEYALPHA   = XUI_KEYF1
+  XUI_KEYF2      = 60
+  XUI_KEYF3      = 61
+  XUI_KEYF4      = 62
+  XUI_KEYFUNC    = 102
+  XUI_KEYUP      = 103
+  XUI_KEYDOWN    = 108
+  XUI_KEYMENU    = 139
   # TODO Implement
 
   IO_INPUT_NUMBERS = :numbers
@@ -100,6 +101,15 @@ module Kernel
 
   def print_line(buf, row=nil, column=nil)
     Platform::Display.print_line(buf, row, column)
+  end
+
+  def gets(separator = 0x0D.chr, limit = SCREEN_X_SIZE, mode = IO_INPUT_LETTERS)
+    Device::IO.get_string(1, limit, mode).split(separator).first
+  end
+
+  def getc(timeout_io = nil)
+    timeout_io ||= IO.timeout
+    convert_key(IO._getc(timeout_io))
   end
 
   private
