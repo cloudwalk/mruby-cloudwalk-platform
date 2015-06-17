@@ -8,7 +8,7 @@
 #include "mruby/hash.h"
 
 static mrb_value
-mrb_pax_print_s__open(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__open(mrb_state *mrb, mrb_value self)
 {
   mrb_int ret;
 
@@ -18,21 +18,21 @@ mrb_pax_print_s__open(mrb_state *mrb, mrb_value self)
 }
 
 static mrb_value
-mrb_pax_print_s__reset(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__reset(mrb_state *mrb, mrb_value self)
 {
   /*OsPrnReset();*/
   return mrb_nil_value();
 }
 
 static mrb_value
-mrb_pax_print_s__close(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__close(mrb_state *mrb, mrb_value self)
 {
   /*OsPrnClose();*/
   return mrb_nil_value();
 }
 
 static mrb_value
-mrb_pax_print_s__font(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__font(mrb_state *mrb, mrb_value self)
 {
   mrb_value filename;
   mrb_int ret;
@@ -45,7 +45,7 @@ mrb_pax_print_s__font(mrb_state *mrb, mrb_value self)
 }
 
 static mrb_value
-mrb_pax_print_s__level(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__level(mrb_state *mrb, mrb_value self)
 {
   mrb_int level=0;
 
@@ -56,7 +56,7 @@ mrb_pax_print_s__level(mrb_state *mrb, mrb_value self)
 }
 
 static mrb_value
-mrb_pax_print_s__size(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__size(mrb_state *mrb, mrb_value self)
 {
   mrb_int singlecode_width=0,singlecode_height=0,multicode_width=0,multicode_height=0;
 
@@ -67,7 +67,7 @@ mrb_pax_print_s__size(mrb_state *mrb, mrb_value self)
 }
 
 static mrb_value
-mrb_pax_print_s__feed(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__feed(mrb_state *mrb, mrb_value self)
 {
   mrb_int size;
 
@@ -78,7 +78,7 @@ mrb_pax_print_s__feed(mrb_state *mrb, mrb_value self)
 }
 
 static mrb_value
-mrb_pax_print_s__print(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__print(mrb_state *mrb, mrb_value self)
 {
   mrb_value buf;
 
@@ -89,7 +89,7 @@ mrb_pax_print_s__print(mrb_state *mrb, mrb_value self)
 }
 
 static mrb_value
-mrb_pax_print_s__print_bmp(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__print_bmp(mrb_state *mrb, mrb_value self)
 {
   mrb_value path;
 
@@ -101,7 +101,7 @@ mrb_pax_print_s__print_bmp(mrb_state *mrb, mrb_value self)
 }
 
 static mrb_value
-mrb_pax_print_s__check(mrb_state *mrb, mrb_value self)
+mrb_platform_print_s__check(mrb_state *mrb, mrb_value self)
 {
   mrb_int ret;
 
@@ -113,23 +113,23 @@ mrb_pax_print_s__check(mrb_state *mrb, mrb_value self)
 void
 mrb_init_print(mrb_state* mrb)
 {
-  struct RClass *pax;
+  struct RClass *platform;
   struct RClass *krn;
   struct RClass *print;
 
-  krn   = mrb->kernel_module;
-  pax   = mrb_class_get(mrb, "PAX");
-  print = mrb_define_class_under(mrb, pax, "Print", mrb->object_class);
+  krn      = mrb->kernel_module;
+  platform = mrb_class_get(mrb, "Platform");
+  print    = mrb_define_class_under(mrb, platform, "Print", mrb->object_class);
 
-  mrb_define_class_method(mrb , print , "_open"      , mrb_pax_print_s__open      , MRB_ARGS_NONE());
-  mrb_define_class_method(mrb , print , "_reset"     , mrb_pax_print_s__reset     , MRB_ARGS_NONE());
-  mrb_define_class_method(mrb , print , "_close"     , mrb_pax_print_s__close     , MRB_ARGS_NONE());
-  mrb_define_class_method(mrb , print , "_font="     , mrb_pax_print_s__font      , MRB_ARGS_REQ(1));
-  mrb_define_class_method(mrb , print , "_level="    , mrb_pax_print_s__level     , MRB_ARGS_REQ(1));
-  mrb_define_class_method(mrb , print , "_size"      , mrb_pax_print_s__size      , MRB_ARGS_REQ(4));
-  mrb_define_class_method(mrb , print , "_feed"      , mrb_pax_print_s__feed      , MRB_ARGS_REQ(1));
-  mrb_define_class_method(mrb , print , "_print"     , mrb_pax_print_s__print     , MRB_ARGS_REQ(1));
-  mrb_define_class_method(mrb , print , "_print_bmp" , mrb_pax_print_s__print_bmp , MRB_ARGS_REQ(1));
-  mrb_define_class_method(mrb , print , "_check"     , mrb_pax_print_s__check     , MRB_ARGS_NONE());
+  mrb_define_class_method(mrb , print , "_open"      , mrb_platform_print_s__open      , MRB_ARGS_NONE());
+  mrb_define_class_method(mrb , print , "_reset"     , mrb_platform_print_s__reset     , MRB_ARGS_NONE());
+  mrb_define_class_method(mrb , print , "_close"     , mrb_platform_print_s__close     , MRB_ARGS_NONE());
+  mrb_define_class_method(mrb , print , "_font="     , mrb_platform_print_s__font      , MRB_ARGS_REQ(1));
+  mrb_define_class_method(mrb , print , "_level="    , mrb_platform_print_s__level     , MRB_ARGS_REQ(1));
+  mrb_define_class_method(mrb , print , "_size"      , mrb_platform_print_s__size      , MRB_ARGS_REQ(4));
+  mrb_define_class_method(mrb , print , "_feed"      , mrb_platform_print_s__feed      , MRB_ARGS_REQ(1));
+  mrb_define_class_method(mrb , print , "_print"     , mrb_platform_print_s__print     , MRB_ARGS_REQ(1));
+  mrb_define_class_method(mrb , print , "_print_bmp" , mrb_platform_print_s__print_bmp , MRB_ARGS_REQ(1));
+  mrb_define_class_method(mrb , print , "_check"     , mrb_platform_print_s__check     , MRB_ARGS_NONE());
 }
 
