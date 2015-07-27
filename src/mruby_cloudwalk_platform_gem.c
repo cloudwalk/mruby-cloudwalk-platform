@@ -15,6 +15,9 @@ void mrb_magnetic_init(mrb_state *mrb);
 void mrb_init_network(mrb_state *mrb);
 void mrb_init_gprs(mrb_state *mrb);
 void mrb_init_wifi(mrb_state *mrb);
+void mrb_io_init(mrb_state *mrb);
+void mrb_init_ethernet(mrb_state *mrb);
+void mrb_init_print(mrb_state *mrb);
 
 void
 mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
