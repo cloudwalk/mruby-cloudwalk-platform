@@ -80,14 +80,5 @@ module Kernel
   def convert_key(value)
     PLATFORM_KEYS[value] || 0x1B.chr
   end
-
-  def convert_input_type(type)
-    case type
-    when IO_INPUT_NUMBERS then INPUT_NUMBERS
-    when IO_INPUT_LETTERS then INPUT_LETTERS
-    when IO_INPUT_SECRET then INPUT_SECRET
-    else
-      INPUT_LETTERS
-    end
-  end
 end
+
