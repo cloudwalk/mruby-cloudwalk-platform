@@ -11,11 +11,17 @@
 static mrb_value
 mrb_platform_io_s__getc(mrb_state *mrb, mrb_value self)
 {
-  mrb_int timeout=0, key;
+  mrb_value timeout;
+  mrb_int key;
 
-  mrb_get_args(mrb, "i", &timeout);
+  mrb_get_args(mrb, "o", &timeout);
 
-  /*key = GetKey(timeout);*/
+  /*If timeout is nil the function should be blocking
+   *if mrb_fixnum_p(timeout)
+   *  key = GetKey(mrb_fixnum(timeout));
+   *else
+   *  key = GetKey(mrb_fixnum(timeout));
+   */
 
   return mrb_fixnum_value(key);
 }
