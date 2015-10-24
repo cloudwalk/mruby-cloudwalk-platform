@@ -12,12 +12,12 @@
 void mrb_system_init(mrb_state *mrb);
 void mrb_display_init(mrb_state *mrb);
 void mrb_magnetic_init(mrb_state *mrb);
-void mrb_init_network(mrb_state *mrb);
-void mrb_init_gprs(mrb_state *mrb);
-void mrb_init_wifi(mrb_state *mrb);
+void mrb_network_init(mrb_state *mrb);
+void mrb_gprs_init(mrb_state *mrb);
+void mrb_wifi_init(mrb_state *mrb);
 void mrb_io_init(mrb_state *mrb);
-void mrb_init_ethernet(mrb_state *mrb);
-void mrb_init_print(mrb_state *mrb);
+void mrb_ethernet_init(mrb_state *mrb);
+void mrb_print_init(mrb_state *mrb);
 
 void
 mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
@@ -26,14 +26,15 @@ mrb_mruby_cloudwalk_platform_gem_init(mrb_state* mrb)
   mrb_display_init(mrb); DONE;
   mrb_magnetic_init(mrb); DONE;
   mrb_io_init(mrb); DONE;
-  mrb_init_network(mrb); DONE;
-  mrb_init_gprs(mrb); DONE;
-  mrb_init_wifi(mrb); DONE;
-  mrb_init_ethernet(mrb); DONE;
-  mrb_init_print(mrb); DONE;
+  mrb_network_init(mrb); DONE;
+  mrb_gprs_init(mrb); DONE;
+  mrb_wifi_init(mrb); DONE;
+  mrb_ethernet_init(mrb); DONE;
+  mrb_print_init(mrb); DONE;
 }
 
 void
 mrb_mruby_cloudwalk_platform_gem_final(mrb_state* mrb)
 {
 }
+

@@ -92,12 +92,13 @@ mrb_gprs_disconnect(mrb_state *mrb, mrb_value klass)
 }
 
 void
-mrb_init_gprs(mrb_state* mrb)
+mrb_gprs_init(mrb_state* mrb)
 {
-  struct RClass *network, *gprs;
+  struct RClass *platform, *network, *gprs;
 
-  network = mrb_class_get(mrb, "Network");
-  gprs    = mrb_define_class_under(mrb, network, "Gprs", mrb->object_class);
+  platform = mrb_class_get(mrb, "Platform");
+  network  = mrb_class_get_under(mrb, platform, "Network");
+  gprs     = mrb_define_class_under(mrb, network, "Gprs", mrb->object_class);
 
   mrb_define_class_method(mrb, gprs, "start", mrb_gprs_start, MRB_ARGS_NONE());
   mrb_define_class_method(mrb, gprs, "power", mrb_gprs_power, MRB_ARGS_REQ(1));

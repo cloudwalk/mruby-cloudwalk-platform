@@ -65,11 +65,12 @@ mrb_wifi_dhcp_client_check(mrb_state *mrb, mrb_value klass)
 }
 
 void
-mrb_init_network(mrb_state* mrb)
+mrb_network_init(mrb_state* mrb)
 {
-  struct RClass *network;
+  struct RClass *network, *platform;
 
-  network = mrb_define_class(mrb, "Network", mrb->object_class);
+  platform = mrb_class_get(mrb, "Platform");
+  network  = mrb_define_class_under(mrb, platform, "Network", mrb->object_class);
 
   mrb_define_class_method(mrb, network, "_ping", mrb_network__ping, MRB_ARGS_REQ(2));
   mrb_define_class_method(mrb, network, "_dhcp_client_start", mrb_wifi_dhcp_client_start, MRB_ARGS_REQ(1));

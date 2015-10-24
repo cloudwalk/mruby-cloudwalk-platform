@@ -60,11 +60,12 @@ mrb_ethernet_disconnect(mrb_state *mrb, mrb_value klass)
 }
 
 void
-mrb_init_ethernet(mrb_state *mrb)
+mrb_ethernet_init(mrb_state *mrb)
 {
-  struct RClass *network, *ethernet;
+  struct RClass *platform, *network, *ethernet;
 
-  network  = mrb_class_get(mrb, "Network");
+  platform = mrb_class_get(mrb, "Platform");
+  network  = mrb_class_get_under(mrb, platform, "Network");
   ethernet = mrb_define_class(mrb, "Ethernet", network);
 
   mrb_define_class_method(mrb , ethernet , "_start"      , mrb_ethernet_start       , MRB_ARGS_NONE());

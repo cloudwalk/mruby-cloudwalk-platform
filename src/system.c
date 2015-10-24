@@ -76,8 +76,8 @@ mrb_system_init(mrb_state* mrb)
   struct RClass *system;
 
   platform = mrb_define_class(mrb, "Platform", mrb->object_class);
-  audio = mrb_define_class_under(mrb, platform, "Audio", mrb->object_class);
-  system = mrb_define_class_under(mrb, platform, "System", mrb->object_class);
+  audio    = mrb_define_class_under(mrb, platform, "Audio", mrb->object_class);
+  system   = mrb_define_class_under(mrb, platform, "System", mrb->object_class);
 
   mrb_define_class_method(mrb , system , "serial"     , mrb_system_s__serial        , MRB_ARGS_NONE());
   mrb_define_class_method(mrb , system , "backlight=" , mrb_system_s__set_backlight , MRB_ARGS_REQ(1));

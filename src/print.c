@@ -111,13 +111,11 @@ mrb_platform_print_s__check(mrb_state *mrb, mrb_value self)
 }
 
 void
-mrb_init_print(mrb_state* mrb)
+mrb_print_init(mrb_state* mrb)
 {
   struct RClass *platform;
-  struct RClass *krn;
   struct RClass *print;
 
-  krn      = mrb->kernel_module;
   platform = mrb_class_get(mrb, "Platform");
   print    = mrb_define_class_under(mrb, platform, "Print", mrb->object_class);
 
