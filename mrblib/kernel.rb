@@ -18,10 +18,10 @@ module Kernel
   XUI_KEYENTER   = 28
   XUI_KEYSHARP   = 55
   XUI_KEYF1      = 59
-  XUI_KEYALPHA   = XUI_KEYF1
   XUI_KEYF2      = 60
   XUI_KEYF3      = 61
   XUI_KEYF4      = 62
+  XUI_KEYALPHA   = 101
   XUI_KEYFUNC    = 102
   XUI_KEYUP      = 103
   XUI_KEYDOWN    = 108
