@@ -63,42 +63,6 @@ module Kernel
     XUI_KEYCANCEL  => 0x1B.chr
   }
 
-  def getc(timeout_io = nil)
-    timeout_io ||= IO.timeout
-    convert_key(Platform::System._getc(timeout_io))
-  end
-
-  def getc
-    # TODO Implement
-    case getc
-    when XUI_KEY0 then "0"
-    when XUI_KEY1 then "1"
-    when XUI_KEY2 then "2"
-    when XUI_KEY3 then "3"
-    when XUI_KEY4 then "4"
-    when XUI_KEY5 then "5"
-    when XUI_KEY6 then "6"
-    when XUI_KEY7 then "7"
-    when XUI_KEY8 then "8"
-    when XUI_KEY9 then "9"
-    when XUI_KEYCANCEL then 0x1B.chr
-    when XUI_KEYCLEAR then 0x0F.chr
-    when XUI_KEYENTER then 0x0D.chr
-    when XUI_KEYALPHA then 0x10.chr
-    when XUI_KEYSHARP then 0x11.chr
-    when XUI_KEYF1 then 0x01.chr
-    when XUI_KEYF2 then 0x02.chr
-    when XUI_KEYF3 then 0x03.chr
-    when XUI_KEYF4 then 0x04.chr
-    when XUI_KEYFUNC then 0x06.chr
-    when XUI_KEYUP then 0x07.chr
-    when XUI_KEYDOWN then 0x08.chr
-    when XUI_KEYMENU then 0x09.chr
-    else
-      0x1B.chr
-    end
-  end
-
   def print_line(buf, row=nil, column=nil)
     Platform::Display.print_line(buf, row, column)
   end
