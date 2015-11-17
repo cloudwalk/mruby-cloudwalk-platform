@@ -1,5 +1,5 @@
 
-class Network
+class Platform::Network
   NET_LINK_ETH       = 1 # Ethernet
   NET_LINK_ETH1      = 2 # USB Ethernet
   NET_LINK_WL        = 3 # GPRS,CDMA,TDSCDMA
