@@ -59,5 +59,10 @@ class Platform::Network::Ethernet
   def self.type
     Network::NET_LINK_ETH
   end
+
+  def self.signal
+    # not supported by the SDK
+    0
+  end
 end
 
