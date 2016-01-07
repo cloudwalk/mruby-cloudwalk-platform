@@ -3,6 +3,7 @@ class Platform
   def self.setup
     Screen.setup(21, 7)
     begin
+      require 'posxml_parser'
       require 'cloudwalk_handshake'
       CloudwalkHandshake.configure!
     rescue LoadError
