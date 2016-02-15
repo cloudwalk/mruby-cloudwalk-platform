@@ -1,6 +1,7 @@
 MRuby::Gem::Specification.new('mruby-cloudwalk-platform') do |spec|
   spec.license = 'Apache License 2.0'
   spec.authors = 'CloudWalk Inc.'
+  spec.version = "0.2.0"
 
   spec.cc.include_paths << "#{build.root}/src"
 

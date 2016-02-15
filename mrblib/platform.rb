@@ -11,5 +11,9 @@ class Platform
     end
     # TODO Implement
   end
+
+  def self.version
+    "0.2.0"
+  end
 end
 
