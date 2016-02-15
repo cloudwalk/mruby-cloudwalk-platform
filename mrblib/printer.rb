@@ -1,5 +1,5 @@
 class PAX
-  class Print
+  class Printer
     RET_OK                = 0
     ERR_PRN_BUSY          = -3701 # Printer busy
     ERR_PRN_PAPEROUT      = -3702 # Out of paper
