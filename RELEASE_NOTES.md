@@ -1,5 +1,9 @@
 # Mruby Cloudwalk Platform
 
+### 0.2.2 - 2016-02-16 - Remove PAX reference on Printer
+
+- Remove PAX reference on Printer.
+
 ### 0.2.1 - 2016-02-15 - Add setup keyboard method
 
 - Add setup keyboard method.
