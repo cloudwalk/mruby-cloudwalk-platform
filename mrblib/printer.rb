@@ -1,4 +1,4 @@
-class PAX
+class Platform
   class Printer
     RET_OK                = 0
     ERR_PRN_BUSY          = -3701 # Printer busy
