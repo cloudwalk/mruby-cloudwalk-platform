@@ -72,9 +72,10 @@ static mrb_value
 mrb_system_s_hwclock(mrb_state *mrb, mrb_value self)
 {
   /*ST_TIME t;*/
+  mrb_value timezone;
   mrb_int year, month, day, hour, minute, second;
 
-  mrb_get_args(mrb, "iiiiii", &year, &month, &day, &hour, &minute, &second);
+  mrb_get_args(mrb, "iiiiiio", &year, &month, &day, &hour, &minute, &second, &timezone);
 
   /*
    *t.Year   = year;
@@ -166,7 +167,7 @@ mrb_system_init(mrb_state* mrb)
   mrb_define_class_method(mrb , system , "battery"        , mrb_system_s__battery       , MRB_ARGS_NONE());
   mrb_define_class_method(mrb , audio  , "beep"           , mrb_audio_s__beep           , MRB_ARGS_REQ(2));
   mrb_define_class_method(mrb , system , "reboot"         , mrb_system_s_reboot         , MRB_ARGS_NONE());
-  mrb_define_class_method(mrb , system , "hwclock"        , mrb_system_s_hwclock        , MRB_ARGS_REQ(6));
+  mrb_define_class_method(mrb , system , "hwclock"        , mrb_system_s_hwclock        , MRB_ARGS_REQ(7));
   mrb_define_class_method(mrb , system , "model"          , mrb_system_s_model          , MRB_ARGS_NONE());
   mrb_define_class_method(mrb , system , "brand"          , mrb_system_s_brand          , MRB_ARGS_NONE());
   mrb_define_class_method(mrb , system , "os_version"     , mrb_system_s_os_version     , MRB_ARGS_NONE());
