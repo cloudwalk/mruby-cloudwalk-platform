@@ -1,5 +1,5 @@
 class Time
-  def hwclock(offset)
+  def hwclock(offset = nil)
     if offset
       if offset.include? "+"
         timezone = offset.sub("+", "-")
