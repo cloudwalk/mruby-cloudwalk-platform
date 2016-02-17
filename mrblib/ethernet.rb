@@ -48,7 +48,7 @@ class Platform::Network::Ethernet
   # @retval ERR_INVALID_PARAM Invalid parameter.
   # @retval ERR_NOT_CONNECT Fail to connect.
   # @retval ERR_DEV_NOT_OPEN Driver loading exception or module error.
-  def self.connnected?; self._connnected?; end
+  def self.connected?; self._connected?; end
 
   # @brief Perform disconnect
   #
