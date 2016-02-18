@@ -18,16 +18,8 @@ class Platform
   end
 
   def self.setup_keyboard
-    Device::IO::ONE_LETTERS   = "qzQZ _,."
-    Device::IO::TWO_LETTERS   = "abcABC"
-    Device::IO::THREE_LETTERS = "defDEF"
-    Device::IO::FOUR_LETTERS  = "ghiGHI"
-    Device::IO::FIVE_LETTERS  = "jklJKL"
-    Device::IO::SIX_LETTERS   = "mnoMNO"
-    Device::IO::SEVEN_LETTERS = "prsPRS"
-    Device::IO::EIGHT_LETTERS = "tuvTUV"
-    Device::IO::NINE_LETTERS  = "wxyWXY"
-    Device::IO::ZERO_LETTERS  = "spSP"
+    Device::IO.setup_keyboard(["qzQZ _,.", "abcABC", "defDEF", "ghiGHI", "jklJKL",
+                              "mnoMNO", "prsPRS", "tuvTUV", "wxyWXY", "spSP"])
   end
 end
 
