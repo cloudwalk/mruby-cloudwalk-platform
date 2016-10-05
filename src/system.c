@@ -151,6 +151,20 @@ mrb_system_s_pinpad_version(mrb_state *mrb, mrb_value self)
   return mrb_str_new_cstr(mrb, version);
 }
 
+static mrb_value
+mrb_system_s_install(mrb_state *mrb, mrb_value self)
+{
+  mrb_int type;
+  mrb_value path, name;
+
+  mrb_get_args(mrb, "SSi", &name, &path, &type);
+
+  /*TODO Implement*/
+  /*ret = OsInstallFile(RSTRING_PTR(name), RSTRING_PTR(path), type);*/
+
+  return mrb_fixnum_value(0);
+}
+
 void
 mrb_system_init(mrb_state* mrb)
 {
@@ -173,5 +187,6 @@ mrb_system_init(mrb_state* mrb)
   mrb_define_class_method(mrb , system , "os_version"     , mrb_system_s_os_version     , MRB_ARGS_NONE());
   mrb_define_class_method(mrb , system , "sdk_version"    , mrb_system_s_sdk_version    , MRB_ARGS_NONE());
   mrb_define_class_method(mrb , system , "pinpad_version" , mrb_system_s_pinpad_version , MRB_ARGS_NONE());
+  mrb_define_class_method(mrb , system , "install"        , mrb_system_s_install        , MRB_ARGS_REQ(3));
 }
 
